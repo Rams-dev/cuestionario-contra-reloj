@@ -1,0 +1,52 @@
+<div id="confetti-wrapper">
+    <canvas id="confetti"></canvas>
+    <h1>¡Felicidades!</h1>
+    <p>Eres el ganador del juego.</p>
+  </div>
+  
+
+<div class="row justify-content-center h-100">
+    <div class="col-md-6 align-self-center">
+        <mat-card class="text-center">
+          <mat-card-header>
+            <!-- <mat-card-title class="mb-4"><h2 class="text-center">¡¡ FELICIDAES !!</h2></mat-card-title> -->
+            <mat-card-subtitle>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content >
+
+            <h3 clas="mb-4"><b>¡¡ FELICIDADES !!</b> Tu puntacion fue de: {{resultado}}</h3>
+            <div class="row justify-content-center">
+                <p>Guardar resultado</p>
+                <form class="col-7 mb-5" [formGroup]="userForm" autocomplete="off">
+                    <div class="col-12 d-block">
+                        <mat-form-field class="d-block">
+                            <mat-label>Usuario</mat-label>
+                            <input matInput formControlName="usuario" name="usuario" #usuario
+                            [required]="!userForm.get('usuario')?.value">
+                            <input type="hidden" formControlName="resultado" value="{{resultado}}">
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="col-12 d-block">
+                        <button mat-raised-button color="primary" (click)="save()">Guardar</button>
+                    </div>
+                    
+    
+                </form>
+            </div>
+            <mat-divider></mat-divider>
+
+            <div *ngIf="resultadoGuardado" class="alert alert-info" role="alert">
+                Puntuacion guardada
+              </div>
+
+                <div class="d-block text-center mt-3">
+                    <!-- <a class="col-md-5 col-sm-7 mb-1" mat-raised-button color="basic" routerLink="/">Inicio</a> -->
+                    <!-- <a class="col-md-5 col-sm-7 mb-1" mat-raised-button color="primary" routerLink="/startQuestions/0">iniciar otra vez</a>
+                    <a class="col-md-5 col-sm-7"  mat-raised-button color="accent">ver ranking</a> -->
+                </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+</div>

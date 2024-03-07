@@ -1,0 +1,19 @@
+#confetti-wrapper {
+    text-align: center;
+  }
+  
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  p {
+    color: #666;
+  }
+  

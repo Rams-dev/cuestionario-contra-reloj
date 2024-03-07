@@ -1,0 +1,48 @@
+<div class="row justify-content-center align-items-center h-100">
+    <div class="col-md-8 align-self-center">
+        <mat-card class="example-card">
+            <mat-card-content>
+              <p>Pregunta</p> 
+              <h3 class="text-bold">{{preguntaActual.pregunta}}</h3>
+
+              <h4>Seleciona una respuesta:</h4>
+            <form [formGroup]="preguntaForm">
+                <p><mat-checkbox formControlName="pregunta1" value="{{preguntaActual.opciones[0]}}" (click)="selectQuestion(preguntaActual.opciones[0])">{{preguntaActual.opciones[0]}}</mat-checkbox></p>
+                <p><mat-checkbox formControlName="pregunta2" value="{{preguntaActual.opciones[1]}}" (click)="selectQuestion(preguntaActual.opciones[1])">{{preguntaActual.opciones[1]}}</mat-checkbox></p>
+                <p><mat-checkbox formControlName="pregunta3" value="{{preguntaActual.opciones[2]}}" (click)="selectQuestion(preguntaActual.opciones[2])">{{preguntaActual.opciones[2]}}</mat-checkbox></p>
+            </form>
+
+            <div *ngIf="esCorrectaLaRespuesta; then respuestaCorrecta"></div>
+            <div *ngIf="time <= 0 || esCorrectaLaRespuesta === false ; then respuestaIncorrecta"></div>
+            <!-- <div *ngIf="time <= 0 || esCorrectaLaRespuesta != ''"> -->
+              
+              <ng-template #respuestaCorrecta>
+                <div class="alert alert-info" role="alert">
+                  <p>¡EXCELENTE! la respuesta correcta es:
+                  {{preguntaActual.respuesta_correcta}}</p>
+                </div>
+              </ng-template>
+              <ng-template #respuestaIncorrecta>
+                <div class="alert alert-danger" role="alert">
+                  <p>¡Error!, la respuesta correcta es: 
+                  {{preguntaActual.respuesta_correcta}}</p>
+                </div>
+              </ng-template>
+
+            <!-- </div> -->
+
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+                <mat-card-actions align="end">
+                  <!-- <button mat-raised-button color="warm" [hidden]="noPregunta==9" (click)="siguientePregunta()">siguiente</button>
+                  <button mat-raised-button color="warm" [hidden]="noPregunta<9" (click)="verResultado()">VerResultado</button>
+                  <button mat-raised-button color="primary" (click)="skip()">skip</button> -->
+                </mat-card-actions>
+            <mat-card-footer>
+                <b>{{time}}</b>
+              <mat-progress-bar mode="determinate" value="{{time * (3.3334)}}" ></mat-progress-bar>
+            </mat-card-footer>
+          </mat-card>
+    </div>
+</div>
+

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 align-self-center">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Bienvenido a este cuestionario</mat-card-title>
+            <mat-card-subtitle>Este es un cuestionario sobre cultura general</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <form class="col-md-12" [formGroup]="userForm" autocomplete="off">
+              <div class="row">
+                <mat-form-field class="col-sm-12 col-md-6">
+                  <mat-label>Usuario</mat-label>
+                  <input matInput formControlName="usuario" name="usuario" #usuario
+                    [required]="!userForm.get('usuario')?.value">
+                </mat-form-field>
+              </div>
+              <button mat-raised-button color="primary" (click)="ingresar()">Comenzar</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>

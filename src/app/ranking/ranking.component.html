@@ -1,0 +1,20 @@
+<div class="row justify-content-center h-100">
+    <div class="col-md-6 align-self-center">
+        <mat-card class="text-center">
+          <mat-card-content >
+              <h3 class="text-center"><b>Top 10 mejores puntuajes</b></h3>
+              
+            <div class="row justify-content-center">
+                <mat-list role="list" class="col-5">
+                    <mat-list-item role="listitem" *ngFor="let item of ranking"><b>{{item["usuario"] | uppercase}}: {{item["resultado"]}}</b> </mat-list-item>
+                </mat-list>
+
+                
+            </div>
+            <a class="col-md-5 col-sm-7 mb-1 mt-4" mat-raised-button color="primary" routerLink="/">Regresar</a> 
+            
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+</div>
